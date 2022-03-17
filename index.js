@@ -63,6 +63,12 @@ myApp.get("/categories", function (req, res) {
   });
 });
 
+myApp.get("/taskers/:Category", function (req, res) {
+  Tasker.find({ Category: req.params.Category }).exec(function (err, taskers) {
+    res.send(taskers);
+  });
+});
+
 myApp.get("/taskers", function (req, res) {
   Tasker.find().exec(function (err, taskers) {
     res.send(taskers);
