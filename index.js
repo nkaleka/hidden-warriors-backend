@@ -31,12 +31,14 @@ const Tasker = mongoose.model("Tasker", {
   Price: Number,
   UserName: String,
   Password: String,
+  image: String,
 });
 
 const Appointment = mongoose.model("Appointment", {
   User: String,
   Tasker: String,
-  DateTime: Date,
+  DateTime: String,
+  // DateTime: Date,
   Price: Number,
   TaskName: String,
 });
