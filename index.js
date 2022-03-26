@@ -1,6 +1,7 @@
 var express = require("express");
 const session = require("express-session");
 const fileupload = require("express-fileupload");
+var path = require("path");
 
 //Setup DB connection
 const mongoose = require("mongoose");
@@ -58,6 +59,16 @@ myApp.use(
     saveUninitialized: true,
   })
 );
+
+myApp.set("views", path.join(__dirname, "views"));
+myApp.use(express.static(__dirname + "/public"));
+myApp.set("view engine", "ejs");
+
+myApp.get("/", function (req, res) {
+  Category.find().exec(function (err, categories) {
+    res.render("index", {categories: categories});
+  });
+});
 
 myApp.get("/categories", function (req, res) {
   Category.find().exec(function (err, categories) {
