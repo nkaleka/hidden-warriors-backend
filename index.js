@@ -76,19 +76,6 @@ myApp.get("/categories", function (req, res) {
   });
 });
 
-// myApp.get("/categories/:category", function (req, res) {
-//   Task.find({ Category: req.params.category }).exec(function (err, tasks) {
-//     Category.find({}).exec(function (err, categories) {
-//       res.render("category", {tasks: tasks, categories: categories});
-//     })
-//   });
-// });
-
-// myApp.get("/taskers/:Category", function (req, res) {
-//   Tasker.find({ Category: req.params.Category }).exec(function (err, taskers) {
-//     res.send(taskers);
-//   });
-// });
 
 myApp.get("/taskers", function (req, res) {
   Tasker.find().exec(function (err, taskers) {
@@ -113,16 +100,23 @@ myApp.get("/taskers/:category", function (req, res) {
   })
 })
 
-
-
 myApp.get("/tasks", function (req, res) {
   Task.find().exec(function (err, tasks) {
     Category.find().exec(function (err, categories) {
       res.render("tasks", {tasks: tasks, categories: categories});
     });
-
   });
 });
+
+myApp.get("/tasker/:name", function (req, res) {
+  Tasker.findOne({ Name: req.params.name }).exec(function (err, tasker) {
+    Category.find().exec(function (err, categories) {
+      res.render("tasker", {tasker: tasker, categories: categories})
+    });
+  })
+})
+
+
 
 myApp.get("/users", function (req, res) {
   User.find().exec(function (err, users) {
