@@ -72,7 +72,8 @@ myApp.get("/", function (req, res) {
 
 myApp.get("/categories", function (req, res) {
   Category.find().exec(function (err, categories) {
-    res.send(categories);
+    // res.send(categories);
+    res.render("categories", {categories: categories});
   });
 });
 
