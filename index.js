@@ -22,7 +22,7 @@ const User = mongoose.model("User", {
 const Task = mongoose.model("Task", {
   Category: String,
   Location: String,
-  DateTime: Date,
+  Name: String,
 });
 
 const Tasker = mongoose.model("Tasker", {
@@ -72,16 +72,23 @@ myApp.get("/", function (req, res) {
 
 myApp.get("/categories", function (req, res) {
   Category.find().exec(function (err, categories) {
-    // res.send(categories);
     res.render("categories", {categories: categories});
   });
 });
 
-myApp.get("/taskers/:Category", function (req, res) {
-  Tasker.find({ Category: req.params.Category }).exec(function (err, taskers) {
-    res.send(taskers);
-  });
-});
+// myApp.get("/categories/:category", function (req, res) {
+//   Task.find({ Category: req.params.category }).exec(function (err, tasks) {
+//     Category.find({}).exec(function (err, categories) {
+//       res.render("category", {tasks: tasks, categories: categories});
+//     })
+//   });
+// });
+
+// myApp.get("/taskers/:Category", function (req, res) {
+//   Tasker.find({ Category: req.params.Category }).exec(function (err, taskers) {
+//     res.send(taskers);
+//   });
+// });
 
 myApp.get("/taskers", function (req, res) {
   Tasker.find().exec(function (err, taskers) {
@@ -89,9 +96,21 @@ myApp.get("/taskers", function (req, res) {
   });
 });
 
+myApp.get("/tasks/:category", function (req, res) {
+  Task.find({ Category: req.params.category }).exec(function (err, tasks) {
+    Category.find().exec(function (err, categories) {
+      res.render("tasks", {tasks: tasks, categories: categories});
+    });
+
+  });
+});
+
 myApp.get("/tasks", function (req, res) {
   Task.find().exec(function (err, tasks) {
-    res.send(tasks);
+    Category.find().exec(function (err, categories) {
+      res.render("tasks", {tasks: tasks, categories: categories});
+    });
+
   });
 });
 

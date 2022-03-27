@@ -41,7 +41,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6>Categories found</h6>
+                                    <h6>Tasks found</h6>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
@@ -54,17 +54,17 @@
                     </div>
                     <div class="row">
 
-                        <% for (var category of categories) { %>
+                        <% for (var task of tasks) { %>
 
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/categories/<%=category.Name%>.png">
+                                <div class="product__item__pic set-bg" data-setbg="/img/product/product-2.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="/tasks/<%=category.Name%>"><%=category.Name%></a></h6>
+                                    <h6><a href="/categories/<%=task.Name%>"><%=task.Name%></a></h6>
                                 </div>
                             </div>
                         </div>

@@ -11,7 +11,7 @@
                     </div>
                     <ul>
                         <% for (var category of categories) { %>
-                        <li><a href="/categories/<%=category.Name%>"><%=category.Name%></a></li>
+                        <li><a href="/tasks/<%=category.Name%>"><%=category.Name%></a></li>
                         <% } %>
 
                     </ul>
@@ -41,7 +41,7 @@
                 <div class="col-lg-3">
 
                     <div class="categories__item set-bg" data-setbg="img/categories/cat-1.jpg">
-                        <h5><a href="#"><%=category.Name%></a></h5>
+                        <h5><a href="/tasks/<%=category.Name%>"><%=category.Name%></a></h5>
                     </div>
                 </div>
             <% } %>

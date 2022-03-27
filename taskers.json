@@ -1,6 +1,6 @@
 [
   {
-    "Category": "cleaning",
+    "Category": "Cleaning",
     "Location": "Kitchener",
     "Name": "Derek",
     "Password": "1234",
@@ -8,7 +8,7 @@
     "UserName": "derek@yahoo.com"
   },
   {
-    "Category": "cleaning",
+    "Category": "Cleaning",
     "Location": "Kitchener",
     "Name": "John",
     "Password": "abc123",
@@ -16,7 +16,7 @@
     "UserName": "john@yahoo.com"
   },
   {
-    "Category": "cleaning",
+    "Category": "Cleaning",
     "Location": "Kitchener",
     "Name": "Sam",
     "Password": "sam1999",
@@ -24,7 +24,7 @@
     "UserName": "sam1@gmail.com"
   },
   {
-    "Category": "gardening",
+    "Category": "Gardening",
     "Location": "Kitchener",
     "Name": "Rock",
     "Password": "rocky11",
@@ -32,7 +32,7 @@
     "UserName": "r11@gmail.com"
   },
   {
-    "Category": "gardening",
+    "Category": "Gardening",
     "Location": "Kitchener",
     "Name": "Greg",
     "Password": "gre12",
@@ -40,7 +40,7 @@
     "UserName": "gre@yahoo.com"
   },
   {
-    "Category": "gardening",
+    "Category": "Gardening",
     "Location": "Kitchener",
     "Name": "Jane",
     "Password": "Jannyabc",
@@ -48,7 +48,7 @@
     "UserName": "admin@yahoo.com"
   },
   {
-    "Category": "grooming",
+    "Category": "Grooming",
     "Location": "Kitchener",
     "Name": "Jaron",
     "Password": "Jaron1ab",
@@ -56,7 +56,7 @@
     "UserName": "jaron@yahoo.com"
   },
   {
-    "Category": "grooming",
+    "Category": "Grooming",
     "Location": "Kitchener",
     "Name": "Jack",
     "Password": "Jacky",
@@ -64,7 +64,7 @@
     "UserName": "jack@yahoo.com"
   },
   {
-    "Category": "grooming",
+    "Category": "Grooming",
     "Location": "Kitchener",
     "Name": "Belly",
     "Password": "bell01",
@@ -72,7 +72,7 @@
     "UserName": "belly@yahoo.com"
   },
   {
-    "Category": "electrician",
+    "Category": "Electrician",
     "Location": "Kitchener",
     "Name": "Elly",
     "Password": "elly199",
@@ -80,7 +80,7 @@
     "UserName": "elly@yahoo.com"
   },
   {
-    "Category": "electrician",
+    "Category": "Electrician",
     "Location": "Kitchener",
     "Name": "karim",
     "Password": "kar01",
@@ -88,7 +88,7 @@
     "UserName": "kar@yahoo.com"
   },
   {
-    "Category": "electrician",
+    "Category": "Electrician",
     "Location": "Kitchener",
     "Name": "Giggy",
     "Password": "gig12",
@@ -96,7 +96,7 @@
     "UserName": "gig@yahoo.com"
   },
   {
-    "Category": "plumbing",
+    "Category": "Plumbing",
     "Location": "Kitchener",
     "Name": "Rambo",
     "Password": "ram1",
@@ -104,7 +104,7 @@
     "UserName": "ram@yahoo.com"
   },
   {
-    "Category": "plumbing",
+    "Category": "Plumbing",
     "Location": "Kitchener",
     "Name": "nawab",
     "Password": "nav002",
@@ -112,7 +112,7 @@
     "UserName": "nav@yahoo.com"
   },
   {
-    "Category": "plumbing",
+    "Category": "Plumbing",
     "Location": "Kitchener",
     "Name": "Jerry",
     "Password": "jere1",
@@ -120,7 +120,7 @@
     "UserName": "jer@yahoo.com"
   },
   {
-    "Category": "painting",
+    "Category": "Painting",
     "Location": "Kitchener",
     "Name": "Kevin",
     "Password": "kev11",
@@ -128,7 +128,7 @@
     "UserName": "kev@yahoo.com"
   },
   {
-    "Category": "painting",
+    "Category": "Painting",
     "Location": "Kitchener",
     "Name": "Pam",
     "Password": "abc1123",
@@ -136,7 +136,7 @@
     "UserName": "pam@yahoo.com"
   },
   {
-    "Category": "painting",
+    "Category": "Painting",
     "Location": "Kitchener",
     "Name": "Ellen",
     "Password": "cde12",
@@ -144,7 +144,7 @@
     "UserName": "ellen@gmail.com"
   },
   {
-    "Category": "painting",
+    "Category": "Painting",
     "Location": "Kitchener",
     "Name": "Bill",
     "Password": "billy1234",
@@ -152,7 +152,7 @@
     "UserName": "bill@yahoo.com"
   },
   {
-    "Category": "carpenter",
+    "Category": "Carpenter",
     "Location": "Kitchener",
     "Name": "Aram",
     "Password": "aram1234",
@@ -160,7 +160,7 @@
     "UserName": "aram@yahoo.com"
   },
   {
-    "Category": "carpenter",
+    "Category": "Carpenter",
     "Location": "Kitchener",
     "Name": "Arun",
     "Password": "arun6262",
@@ -168,7 +168,7 @@
     "UserName": "arun@yahoo.com"
   },
   {
-    "Category": "carpenter",
+    "Category": "Carpenter",
     "Location": "Kitchener",
     "Name": "Barb",
     "Password": "bar222",
@@ -176,7 +176,7 @@
     "UserName": "admin@yahoo.com"
   },
   {
-    "Category": "carpenter",
+    "Category": "Carpenter",
     "Location": "Kitchener",
     "Name": "Nick",
     "Password": "ni12",

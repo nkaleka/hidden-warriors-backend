@@ -1,23 +1,23 @@
 [
   {
-    "Name": "cleaning"
+    "Name": "Cleaning"
   },
   {
-    "Name": "gardening"
+    "Name": "Gardening"
   },
   {
-    "Name": "grooming"
+    "Name": "Grooming"
   },
   {
-    "Name": "electrician"
+    "Name": "Electrician"
   },
   {
-    "Name": "plumbing"
+    "Name": "Plumbing"
   },
   {
-    "Name": "painting"
+    "Name": "Painting"
   },
   {
-    "Name": "carpenter"
+    "Name": "Carpenter"
   }
 ]

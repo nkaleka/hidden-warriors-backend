@@ -1,0 +1,117 @@
+[
+    {
+      "Category": "Cleaning",
+      "Location": "Kitchener",
+      "Name": "Carpet Cleaning"
+    },
+    {
+      "Category": "Cleaning",
+      "Location": "Kitchener",
+      "Name": "Apartment Cleaning"
+    },
+    {
+      "Category": "Cleaning",
+      "Location": "Kitchener",
+      "Name": "Car Cleaning"
+    },
+    {
+      "Category": "Gardening",
+      "Location": "Kitchener",
+      "Name": "Planting"
+    },
+    {
+      "Category": "Gardening",
+      "Location": "Kitchener",
+      "Name": "Watering plants"
+    },
+    {
+      "Category": "Gardening",
+      "Location": "Kitchener",
+      "Name": "Weeding"
+    },
+    {
+      "Category": "Grooming",
+      "Location": "Kitchener",
+      "Name": "Hair cut"
+    },
+    {
+      "Category": "Grooming",
+      "Location": "Kitchener",
+      "Name": "Trimming"
+    },
+    {
+      "Category": "Grooming",
+      "Location": "Kitchener",
+      "Name": "Makeup"
+    },
+    {
+      "Category": "Electrician",
+      "Location": "Kitchener",
+      "Name": "Wiring"
+    },
+    {
+      "Category": "Electrician",
+      "Location": "Kitchener",
+      "Name": "Replacing Bulbs"
+    },
+    {
+      "Category": "Electrician",
+      "Location": "Kitchener",
+      "Name": "Repair electrical control"
+    },
+    {
+      "Category": "Plumbing",
+      "Location": "Kitchener",
+      "Name": "Pipe Connections"
+    },
+    {
+      "Category": "Plumbing",
+      "Location": "Kitchener",
+      "Name": "Plumbing Fixtures"
+    },
+    {
+      "Category": "Plumbing",
+      "Location": "Kitchener",
+      "Name": "Drainage Systems"
+    },
+    {
+      "Category": "Painting",
+      "Location": "Kitchener",
+      "Name": "House Painting"
+    },
+    {
+      "Category": "Painting",
+      "Location": "Kitchener",
+      "Name": "Fence Painting"
+    },
+    {
+      "Category": "Painting",
+      "Location": "Kitchener",
+      "Name": "Garage Painting"
+    },
+    {
+      "Category": "Painting",
+      "Location": "Kitchener",
+      "Name": "Doors and Windows"
+    },
+    {
+      "Category": "Carpenter",
+      "Location": "Kitchener",
+      "Name": "Building Foundations"
+    },
+    {
+      "Category": "Carpenter",
+      "Location": "Kitchener",
+      "Name": "Installing Walls"
+    },
+    {
+      "Category": "Carpenter",
+      "Location": "Kitchener",
+      "Name": "Roofing System"
+    },
+    {
+      "Category": "Carpenter",
+      "Location": "Kitchener",
+      "Name": "Stairs"
+    }
+  ]
