@@ -105,6 +105,16 @@ myApp.get("/tasks/:category", function (req, res) {
   });
 });
 
+myApp.get("/taskers/:category", function (req, res) {
+  Tasker.find({ Category: req.params.category }).exec(function (err, taskers) {
+    Category.find().exec(function (err, categories) {
+      res.render("taskers", {taskers: taskers, categories: categories})
+    });
+  })
+})
+
+
+
 myApp.get("/tasks", function (req, res) {
   Task.find().exec(function (err, tasks) {
     Category.find().exec(function (err, categories) {
