@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="filter__found">
-                                <h6>Taskers found</h6>
+                                <h6>Taskers found for <%= task %></h6>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-3">
@@ -63,7 +63,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="/tasks/<%=category.Name%>"><%=tasker.Name%></a></h6>
+                                <h6><a href="/tasker/<%=tasker.Name%>/<%= task %>"><%=tasker.Name%></a></h6>
                             </div>
                         </div>
                     </div>

@@ -9,19 +9,14 @@
         </div>
         <div class="checkout__form">
             <h4>Login Details</h4>
-            <form action="/login" method="POST">
+            <form action="/add-appointment" method="POST">
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
                         <div class="checkout__input">
-                            <p>UserName<span>*</span></p>
-                            <input type="text" name="UserName">
+                            <p><%=error%></p>
                         </div>
 
-                                <div class="checkout__input">
-                                    <p>Password<span>*</span></p>
-                                    <input type="text" name="Password">
-                                </div>
-                                <button type="submit" class="site-btn">Log In</button>
+
                     </div>
                 </div>
             </form>

@@ -1,12 +1,12 @@
 <%- include('layouts/header'); -%>
 
-    <!-- Breadcrumb Section Begin -->
+    <!-- Breadcrumb Section Begin
     <section class="breadcrumb-section set-bg" data-setbg="/img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Vegetable’s Package</h2>
+                        <h2>Book <%=tasker.Name%></h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <a href="./index.html">Vegetables</a>
@@ -17,7 +17,7 @@
             </div>
         </div>
     </section>
-    <!-- Breadcrumb Section End -->
+    Breadcrumb Section End -->
 
     <!-- Product Details Section Begin -->
     <section class="product-details spad">
@@ -52,8 +52,9 @@
                             <i class="fa fa-star-half-o"></i>
                             <span>(18 reviews)</span>
                         </div>
-                        <div class="product__details__price">$<%=tasker.Price%>
+                        <div class="product__details__price">$<%=tasker.Price%> / Hour
                         <p><%=tasker.Location%></p></div>
+                        <p><%=task%></p>
                         <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
                             vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
                             quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
@@ -64,7 +65,7 @@
                                 </div>
                             </div>
                         </div> -->
-                        <a href="#" class="primary-btn">Booking</a>
+                        <a href="/checkout/<%= tasker.Name %>/<%= task %>" class="primary-btn">Booking</a>
                         <!-- <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a> -->
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>

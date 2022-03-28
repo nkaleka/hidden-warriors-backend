@@ -16,7 +16,11 @@ const User = mongoose.model("User", {
   Email: String,
   UserName: String,
   Password: String,
-  Location: String,
+  City: String,
+  Address: String,
+  Country: String,
+  Postcode: String,
+  Phone: String
 });
 
 const Task = mongoose.model("Task", {
@@ -42,6 +46,14 @@ const Appointment = mongoose.model("Appointment", {
   // DateTime: Date,
   Price: Number,
   TaskName: String,
+  AppointmentDate: String,
+  FullName: String,
+  Country: String,
+  Address: String,
+  City: String,
+  Postcode: String,
+  Phone: String,
+  Email: String
 });
 
 const Category = mongoose.model("Category", {
@@ -84,18 +96,23 @@ myApp.get("/taskers", function (req, res) {
 });
 
 myApp.get("/tasks/:category", function (req, res) {
+  console.log(`${req.params.category}`);
   Task.find({ Category: req.params.category }).exec(function (err, tasks) {
+    // console.log(tasks);
     Category.find().exec(function (err, categories) {
+    // console.log(categories);
       res.render("tasks", {tasks: tasks, categories: categories});
     });
 
   });
 });
 
-myApp.get("/taskers/:category", function (req, res) {
+myApp.get("/taskers/:category/:task", function (req, res) {
   Tasker.find({ Category: req.params.category }).exec(function (err, taskers) {
-    Category.find().exec(function (err, categories) {
-      res.render("taskers", {taskers: taskers, categories: categories})
+    console.log(taskers);
+    Category.find({ Name: req.params.category }).exec(function (err, categories) {
+      console.log(categories);
+      res.render("taskers", {taskers: taskers, categories: categories, task: req.params.task})
     });
   })
 })
@@ -108,20 +125,38 @@ myApp.get("/tasks", function (req, res) {
   });
 });
 
-myApp.get("/tasker/:name", function (req, res) {
+myApp.get("/tasker/:name/:task", function (req, res) {
   Tasker.findOne({ Name: req.params.name }).exec(function (err, tasker) {
     Category.find().exec(function (err, categories) {
-      res.render("tasker", {tasker: tasker, categories: categories})
+      res.render("tasker", {tasker: tasker, categories: categories, task: req.params.task})
     });
   })
 })
 
-
+myApp.get("/checkout/:name/:task", function (req, res) {
+  if (req.session.userLoggedIn) {
+    Tasker.findOne({ Name: req.params.name }).exec(function (err, tasker) {
+      res.render("logincheckout", { tasker: tasker, task: req.params.task, Name: req.session.UserName });
+    });
+  } else {
+    Tasker.findOne({ Name: req.params.name }).exec(function (err, tasker) {
+      res.render("checkout", { tasker: tasker, task: req.params.task });
+    });
+  }
+});
 
 myApp.get("/users", function (req, res) {
   User.find().exec(function (err, users) {
     res.send(users);
   });
+});
+
+myApp.get("/login", function (req, res) {
+  res.render("login");
+});
+
+myApp.get("/register", function (req, res) {
+  res.render("register");
 });
 
 myApp.post("/login", function (req, res) {
@@ -132,11 +167,12 @@ myApp.post("/login", function (req, res) {
     admin
   ) {
     if (admin) {
-      req.session.username = admin.username;
-      req.session.userLoggedIn = true;
-      res.send({ error: "login success" });
+      req.session.username = UserName;
+      console.log(req.session.username);
+       req.session.userLoggedIn = true;
+      res.render("success", { message: "login success" });
     } else {
-      res.send({ error: "sorry login failed" });
+      res.render("success", { message: "sorry login failed" });
     }
   });
 });
@@ -147,18 +183,25 @@ myApp.post("/register", function (req, res) {
   var Email = req.body.Email;
   var UserName = req.body.UserName;
   var Password = req.body.Password;
-  var Tasker = Boolean(req.body.Tasker);
+  var City = req.body.City;
   var Address = req.body.Address;
-  var Zipcode = req.body.Zipcode;
+  var Province = req.body.Province;
+  var Postcode = req.body.Postcode;
+  var Country = req.body.Country;
+  var Phone = req.body.Phone;
+
 
   var pageData = {
     Name: Name,
     Email: Email,
     UserName: UserName,
     Password: Password,
-    Tasker: Tasker,
+    City: City,
+    Province: Province,
     Address: Address,
-    Zipcode: Zipcode,
+    Postcode: Postcode,
+    Country: Country,
+    Phone: Phone
   };
   var newuser = new User(pageData);
 
@@ -174,9 +217,17 @@ myApp.post("/add-appointment", function (req, res) {
   var data = {
     User: req.body.User,
     Tasker: req.body.Tasker,
-    DateTime: req.body.DateTime,
     Price: req.body.Price,
     TaskName: req.body.TaskName,
+    AppointmentDate: req.body.DateTime,
+    FullName: req.body.User,
+    Country: req.body.Country,
+    Address: req.body.Address,
+    City: req.body.City,
+    Postcode: req.body.Postcode,
+    Phone: req.body.Phone,
+    Email: req.body.Email,
+    AppointmentTime: req.body.AppointmentTime
   };
   var appt = new Appointment(data);
 
@@ -185,7 +236,7 @@ myApp.post("/add-appointment", function (req, res) {
       if (err) {
         res.send("Error saving appointment: " + err.message);
       } else {
-        res.send("success");
+        res.render("success", {message: "You appointment has been created successfully!"});
       }
     });
   });

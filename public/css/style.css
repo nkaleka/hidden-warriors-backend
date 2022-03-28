@@ -1254,7 +1254,7 @@ ol {
 -----------------------*/
 
 .product {
-	padding-top: 80px;
+	padding-top: 10px;
 	padding-bottom: 80px;
 }
 
@@ -1421,7 +1421,7 @@ ol {
 }
 
 .filter__item {
-	padding-top: 45px;
+	padding-top: 10px;
 	border-bottom: 1px solid #ebebeb;
 	padding-bottom: 10px;
 	margin-bottom: 20px;
@@ -1661,7 +1661,7 @@ ol {
 -----------------------*/
 
 .product-details {
-	padding-top: 80px;
+	padding-top: 20px;
 }
 
 .product__details__pic__item {
