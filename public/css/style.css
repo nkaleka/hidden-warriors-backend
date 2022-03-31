@@ -727,12 +727,17 @@ ol {
 }
 
 .hero__item {
-	height: 431px;
+	width: 530px;
+    height: 400px;
+	/* height: 431px; */
 	display: flex;
 	align-items: center;
 	padding-left: 75px;
+	margin-left: 33%;
 }
-
+.hero__text{
+	margin-left: -83% !important;
+}
 .hero__text span {
 	font-size: 14px;
 	text-transform: uppercase;
