@@ -20,7 +20,7 @@ const User = mongoose.model("User", {
   Address: String,
   Country: String,
   Postcode: String,
-  Phone: String
+  Phone: String,
 });
 
 const Task = mongoose.model("Task", {
@@ -53,7 +53,7 @@ const Appointment = mongoose.model("Appointment", {
   City: String,
   Postcode: String,
   Phone: String,
-  Email: String
+  Email: String,
 });
 
 const Category = mongoose.model("Category", {
@@ -78,20 +78,28 @@ myApp.set("view engine", "ejs");
 
 myApp.get("/", function (req, res) {
   Category.find().exec(function (err, categories) {
-    res.render("index", {categories: categories});
+    res.render("index", { categories: categories });
   });
 });
 
 myApp.get("/categories", function (req, res) {
   Category.find().exec(function (err, categories) {
-    res.render("categories", {categories: categories});
+    res.render("categories", { categories: categories });
   });
 });
 
-
+/* this is just for reference
 myApp.get("/taskers", function (req, res) {
   Tasker.find().exec(function (err, taskers) {
     res.send(taskers);
+  });
+});*/
+
+myApp.get("/tasks", function (req, res) {
+  Task.find().exec(function (err, tasks) {
+    Category.find().exec(function (err, categories) {
+      res.render("tasks", { tasks: tasks, categories: categories });
+    });
   });
 });
 
@@ -100,27 +108,25 @@ myApp.get("/tasks/:category", function (req, res) {
   Task.find({ Category: req.params.category }).exec(function (err, tasks) {
     // console.log(tasks);
     Category.find().exec(function (err, categories) {
-    // console.log(categories);
-      res.render("tasks", {tasks: tasks, categories: categories});
+      // console.log(categories);
+      res.render("tasks", { tasks: tasks, categories: categories });
     });
-
   });
 });
 
 myApp.get("/taskers/:category/:task", function (req, res) {
   Tasker.find({ Category: req.params.category }).exec(function (err, taskers) {
     console.log(taskers);
-    Category.find({ Name: req.params.category }).exec(function (err, categories) {
+    Category.find({ Name: req.params.category }).exec(function (
+      err,
+      categories
+    ) {
       console.log(categories);
-      res.render("taskers", {taskers: taskers, categories: categories, task: req.params.task})
-    });
-  })
-})
-
-myApp.get("/tasks", function (req, res) {
-  Task.find().exec(function (err, tasks) {
-    Category.find().exec(function (err, categories) {
-      res.render("tasks", {tasks: tasks, categories: categories});
+      res.render("taskers", {
+        taskers: taskers,
+        categories: categories,
+        task: req.params.task,
+      });
     });
   });
 });
@@ -128,15 +134,23 @@ myApp.get("/tasks", function (req, res) {
 myApp.get("/tasker/:name/:task", function (req, res) {
   Tasker.findOne({ Name: req.params.name }).exec(function (err, tasker) {
     Category.find().exec(function (err, categories) {
-      res.render("tasker", {tasker: tasker, categories: categories, task: req.params.task})
+      res.render("tasker", {
+        tasker: tasker,
+        categories: categories,
+        task: req.params.task,
+      });
     });
-  })
-})
+  });
+});
 
 myApp.get("/checkout/:name/:task", function (req, res) {
   if (req.session.userLoggedIn) {
     Tasker.findOne({ Name: req.params.name }).exec(function (err, tasker) {
-      res.render("logincheckout", { tasker: tasker, task: req.params.task, Name: req.session.UserName });
+      res.render("logincheckout", {
+        tasker: tasker,
+        task: req.params.task,
+        Name: req.session.UserName,
+      });
     });
   } else {
     Tasker.findOne({ Name: req.params.name }).exec(function (err, tasker) {
@@ -169,7 +183,7 @@ myApp.post("/login", function (req, res) {
     if (admin) {
       req.session.username = UserName;
       console.log(req.session.username);
-       req.session.userLoggedIn = true;
+      req.session.userLoggedIn = true;
       res.render("success", { message: "login success" });
     } else {
       res.render("success", { message: "sorry login failed" });
@@ -190,7 +204,6 @@ myApp.post("/register", function (req, res) {
   var Country = req.body.Country;
   var Phone = req.body.Phone;
 
-
   var pageData = {
     Name: Name,
     Email: Email,
@@ -201,14 +214,16 @@ myApp.post("/register", function (req, res) {
     Address: Address,
     Postcode: Postcode,
     Country: Country,
-    Phone: Phone
+    Phone: Phone,
   };
   var newuser = new User(pageData);
 
   newuser.save().then(function () {
     console.log("New User Registered");
     User.find({}).exec(function (err, users) {
-      res.send("success");
+      res.render("success", {
+        message: "user successfully registered!",
+      });
     });
   });
 });
@@ -227,7 +242,7 @@ myApp.post("/add-appointment", function (req, res) {
     Postcode: req.body.Postcode,
     Phone: req.body.Phone,
     Email: req.body.Email,
-    AppointmentTime: req.body.AppointmentTime
+    AppointmentTime: req.body.AppointmentTime,
   };
   var appt = new Appointment(data);
 
@@ -236,7 +251,9 @@ myApp.post("/add-appointment", function (req, res) {
       if (err) {
         res.send("Error saving appointment: " + err.message);
       } else {
-        res.render("success", {message: "You appointment has been created successfully!"});
+        res.render("success", {
+          message: "You appointment has been created successfully!",
+        });
       }
     });
   });

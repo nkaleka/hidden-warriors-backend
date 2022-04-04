@@ -1,77 +1,81 @@
 <%- include('layouts/header'); -%>
 
-    <!-- Checkout Section Begin -->
-    <section class="checkout spad">
-        <div class="container">
-            <div class="checkout__form">
-                <h4>Enter Registration Details</h4>
-                <form action="/register" method="POST">
+<!-- Checkout Section Begin -->
+<section class="checkout spad">
+  <div class="container">
+    <div class="checkout__form">
+      <h4>Enter Registration Details</h4>
+      <form action="/register" method="POST">
+        <div class="col-lg-8 col-md-6">
+          <div class="checkout__input">
+            <p>Full Name<span>*</span></p>
+            <input type="text" name="Name" />
+          </div>
+          <div class="checkout__input">
+            <p>User Name<span>*</span></p>
+            <input type="text" name="UserName" />
+          </div>
+          <div class="checkout__input">
+            <p>Password<span>*</span></p>
+            <input type="password" name="Password" />
+          </div>
 
+          <div class="checkout__input">
+            <p>Country<span>*</span></p>
+            <input type="text" name="Country" />
+          </div>
+          <div class="checkout__input">
+            <p>Address<span>*</span></p>
+            <input
+              type="text"
+              placeholder="Street Address"
+              class="checkout__input__add"
+              name="Address"
+            />
+            <input
+              type="text"
+              placeholder="Apartment, suite, unite ect (optinal)"
+            />
+          </div>
+          <div class="checkout__input">
+            <p>City<span>*</span></p>
+            <input type="text" name="City" />
+          </div>
+          <div class="checkout__input">
+            <p>Province<span>*</span></p>
+            <input type="text" name="Province" />
+          </div>
+          <div class="checkout__input">
+            <p>Postcode<span>*</span></p>
+            <input type="text" name="Postcode" />
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="checkout__input">
+                <p>Phone<span>*</span></p>
+                <input type="text" name="Phone" />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="checkout__input">
+                <p>Email<span>*</span></p>
+                <input type="text" name="Email" />
+              </div>
+            </div>
+          </div>
+        </div>
 
-                        <div class="col-lg-8 col-md-6">
-                                    <div class="checkout__input">
-                                        <p>Full Name<span>*</span></p>
-                                        <input type="text" name="Name">
-                                    </div>
-                                    <div class="checkout__input">
-                                        <p>User Name<span>*</span></p>
-                                        <input type="text" name="UserName">
-                                    </div>
-                                    <div class="checkout__input">
-                                        <p>Password<span>*</span></p>
-                                        <input type="text" name="Password">
-                                    </div>
-
-                            <div class="checkout__input">
-                                <p>Country<span>*</span></p>
-                                <input type="text" name="Country">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Address<span>*</span></p>
-                                <input type="text" placeholder="Street Address" class="checkout__input__add"
-                                name="Address">
-                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
-                            </div>
-                            <div class="checkout__input">
-                                <p>City<span>*</span></p>
-                                <input type="text" name="City">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Province<span>*</span></p>
-                                <input type="text" name="Province">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Postcode<span>*</span></p>
-                                <input type="text" name="Postcode">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text" name="Phone">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text" name="Email">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-lg-4 col-md-6">
-                            <!-- <div class="checkout__order">
+        <div class="col-lg-4 col-md-6">
+          <!-- <div class="checkout__order">
                                 <h4>Your Order</h4> -->
 
-                                <button type="submit" class="site-btn">Submit</button>
-                            <!-- </div> -->
-                        </div>
-                </form>
-            </div>
+          <button type="submit" class="site-btn">Submit</button>
+          <!-- </div> -->
         </div>
-    </section>
-    <!-- Checkout Section End -->
+      </form>
+    </div>
+  </div>
+</section>
+<!-- Checkout Section End -->
 
 <%- include('layouts/footer'); -%>
