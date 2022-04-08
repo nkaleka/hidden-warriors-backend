@@ -99,7 +99,11 @@
     $('.hero__categories__all').on('click', function(){
         $('.hero__categories ul').slideToggle(400);
     });
-
+    // function register(){
+    //     if(document.getElementById('name')==''|| document.getElementById('name')==null){
+    //         console.log("Please enter your full name");
+    //     }
+    // }
     /*--------------------------
         Latest Product Slider
     ----------------------------*/
