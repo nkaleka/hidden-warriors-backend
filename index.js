@@ -76,46 +76,38 @@ myApp.set("views", path.join(__dirname, "views"));
 myApp.use(express.static(__dirname + "/public"));
 myApp.set("view engine", "ejs");
 
-myApp.get("/", function (req, res) {
-  Category.find().exec(function (err, categories) {
+function categoriesHandler(req, res) {
+   Category.find().exec(function (err, categories) {
     res.render("index", { categories: categories });
   });
-});
+}
+myApp.get('/', categoriesHandler);
 
-myApp.get("/categories", function (req, res) {
-  Category.find().exec(function (err, categories) {
+function secondCategoriesHandler(req, res) {
+   Category.find().exec(function (err, categories) {
     res.render("categories", { categories: categories });
   });
-});
+}
+myApp.get('/categories', secondCategoriesHandler);
 
-/* this is just for reference
-myApp.get("/taskers", function (req, res) {
-  Tasker.find().exec(function (err, taskers) {
-    res.send(taskers);
+function tasksHandler(req, res) {
+   Category.find().exec(function (err, categories) {
+    res.render("tasks", { tasks: tasks, categories: categories  });
   });
-});*/
+}
+myApp.get('/tasks', tasksHandler);
 
-myApp.get("/tasks", function (req, res) {
-  Task.find().exec(function (err, tasks) {
+ function tasksCategoryHandler(req, res) {
+ Task.find({ Category: req.params.category }).exec(function (err, tasks) {
     Category.find().exec(function (err, categories) {
       res.render("tasks", { tasks: tasks, categories: categories });
     });
   });
-});
+}
+myApp.get('/tasks/:category', tasksCategoryHandler);
 
-myApp.get("/tasks/:category", function (req, res) {
-  console.log(`${req.params.category}`);
-  Task.find({ Category: req.params.category }).exec(function (err, tasks) {
-    // console.log(tasks);
-    Category.find().exec(function (err, categories) {
-      // console.log(categories);
-      res.render("tasks", { tasks: tasks, categories: categories });
-    });
-  });
-});
-
-myApp.get("/taskers/:category/:task", function (req, res) {
-  Tasker.find({ Category: req.params.category }).exec(function (err, taskers) {
+function taskerCategoriesHandler(req, res) {
+    Tasker.find({ Category: req.params.category }).exec(function (err, taskers) {
     console.log(taskers);
     Category.find({ Name: req.params.category }).exec(function (
       err,
@@ -129,9 +121,10 @@ myApp.get("/taskers/:category/:task", function (req, res) {
       });
     });
   });
-});
+}
+myApp.get('/taskers/:category/:task', taskerCategoriesHandler);
 
-myApp.get("/tasker/:name/:task", function (req, res) {
+function taskerNameHandler(req, res) {
   Tasker.findOne({ Name: req.params.name }).exec(function (err, tasker) {
     Category.find().exec(function (err, categories) {
       res.render("tasker", {
@@ -141,10 +134,12 @@ myApp.get("/tasker/:name/:task", function (req, res) {
       });
     });
   });
-});
+}
+myApp.get('/tasker/:name/:task', taskerNameHandler);
 
-myApp.get("/checkout/:name/:task", function (req, res) {
-  if (req.session.userLoggedIn) {
+
+function checkoutNameHandler(req, res) {
+   if (req.session.userLoggedIn) {
     Tasker.findOne({ Name: req.params.name }).exec(function (err, tasker) {
       res.render("logincheckout", {
         tasker: tasker,
@@ -157,13 +152,15 @@ myApp.get("/checkout/:name/:task", function (req, res) {
       res.render("checkout", { tasker: tasker, task: req.params.task });
     });
   }
-});
+}
+myApp.get('/tasker/:name/:task', checkoutNameHandler);
 
-myApp.get("/users", function (req, res) {
+function usersHandler(req, res) {
   User.find().exec(function (err, users) {
     res.send(users);
   });
-});
+}
+myApp.get('/users', usersHandler);
 
 myApp.get("/login", function (req, res) {
   res.render("login");
@@ -259,5 +256,7 @@ myApp.post("/add-appointment", function (req, res) {
   });
 });
 
-myApp.listen(8080);
+myApp.listen(8000);
 console.log("server running");
+
+module.exports = categoriesHandler, secondCategoriesHandler, tasksHandler, tasksCategoryHandler, taskerCategoriesHandler, taskerNameHandler, checkoutNameHandler, usersHandler;
